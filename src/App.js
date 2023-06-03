@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import Footer from "./components/Footer"
+import Home from "./pages/Home";
+import Header from "./components/Header";
+import Error from "./pages/Error";
+import { useEffect,useContext } from "react";
+import WeatherContext from "./context/WeatherContext";
+import Spinner from "./components/Spinner";
+
 
 function App() {
+  const {loading,fetchWeather,error}=useContext(WeatherContext);
+  useEffect(() => {
+    fetchWeather();
+  },[]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-white min-h-screen  W-[100vw] overflow-x-hidden  overflow-y-hidden">
+      <Header />
+
+{loading? <Spinner /> : 
+     (error ? <Error /> :<Home />)
+     }  
+     
+
+     
+      <Footer />
     </div>
   );
 }
