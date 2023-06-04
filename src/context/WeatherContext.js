@@ -24,7 +24,7 @@ export const WeatherContextProvider = ({ children }) => {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '53a4e1b50amshad4530dff551dfep13e4c5jsn4b6995edcf14',
+        'X-RapidAPI-Key': ""
         'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
       }
     };
